@@ -27,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>org.motometer</groupId>
-            <artifactId>telegram-listener-api</artifactId>
+            <artifactId>telegram-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
