@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.8.RELEASE</version>
-		<relativePath/>
-	</parent>
+
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>telegram-listener-api</module>
+		<module>telegram-webhook</module>
+    </modules>
+
 	<groupId>org.motometer</groupId>
 	<artifactId>motometer-bot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -17,27 +19,6 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.10</version>
-			<scope>provided</scope>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -58,7 +39,7 @@
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<configLocation>${project.basedir}/checkstyle.xml</configLocation>
+					<configLocation>${basedir}/checkstyle.xml</configLocation>
 					<encoding>UTF-8</encoding>
 					<consoleOutput>true</consoleOutput>
 					<failsOnError>true</failsOnError>
@@ -79,7 +60,7 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.12.0</version>
 				<configuration>
-					<rulesets>${project.basedir}/pmd-ruleset.xml</rulesets>
+					<rulesets>${basedir}/pmd-ruleset.xml</rulesets>
 				</configuration>
 				<executions>
 					<execution>

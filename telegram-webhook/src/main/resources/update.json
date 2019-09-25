@@ -1,0 +1,23 @@
+{
+  "update_id": 943481692,
+  "message": {
+    "message_id": 3,
+    "from": {
+      "id": 251525873,
+      "is_bot": false,
+      "first_name": "Viacheslav",
+      "last_name": "Bychkovskyi",
+      "username": "vbychkovskyi",
+      "language_code": "uk"
+    },
+    "chat": {
+      "id": 251525873,
+      "first_name": "Viacheslav",
+      "last_name": "Bychkovskyi",
+      "username": "vbychkovskyi",
+      "type": "private"
+    },
+    "date": 1569399787,
+    "text": "asdf"
+  }
+}
