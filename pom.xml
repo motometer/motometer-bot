@@ -7,8 +7,10 @@
 
 	<modules>
 		<module>telegram-listener-api</module>
-		<module>telegram-webhook</module>
-    </modules>
+		<module>telegram-subscriber</module>
+		<module>telegram-processor</module>
+		<module>telegram-publisher</module>
+	</modules>
 
 	<groupId>org.motometer</groupId>
 	<artifactId>motometer-bot</artifactId>
