@@ -6,10 +6,11 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>telegram-listener-api</module>
+		<module>telegram-subscriber-api</module>
+		<module>telegram-publisher-api</module>
 		<module>telegram-subscriber</module>
-		<module>telegram-processor</module>
 		<module>telegram-publisher</module>
+		<module>telegram-processor</module>
 	</modules>
 
 	<groupId>org.motometer</groupId>
