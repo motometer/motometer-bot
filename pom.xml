@@ -6,7 +6,6 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>telegram-client</module>
 		<module>telegram-subscriber</module>
 		<module>telegram-publisher</module>
 		<module>telegram-processor</module>
