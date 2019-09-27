@@ -1,4 +1,4 @@
-package org.motometer.bot.teletram;
+package org.motometer.bot.telegram;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
