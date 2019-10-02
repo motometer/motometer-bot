@@ -1,5 +1,6 @@
 package org.motometer.bot.telegram.api;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.motometer.telegram.bot.UpdateListener;
 import org.motometer.telegram.bot.api.Update;
@@ -12,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class UpdateController implements UpdateListener {
+
+    private final UpdateListener updateListener;
 
     @Override
     @ResponseStatus(code = HttpStatus.CREATED)
@@ -20,5 +24,6 @@ public class UpdateController implements UpdateListener {
     public void onUpdate(@RequestBody Update update) {
         log.info("Received update");
         log.debug("Received update={}", update);
+        updateListener.onUpdate(update);
     }
 }
