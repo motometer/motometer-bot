@@ -1,4 +1,2 @@
 telegram:
   token: fake-token
-kafka:
-  bootstrapAddress: 'localhost:9092'
