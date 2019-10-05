@@ -59,8 +59,10 @@ test {
 }
 
 task integrationTest(type: Test) {
-    group 'Verification'
+    group 'verification'
     description 'Runs the integration tests.'
     testClassesDirs = sourceSets.integrationTest.output.classesDirs
     classpath = sourceSets.integrationTest.runtimeClasspath
+    outputs.upToDateWhen { false }
+    useJUnitPlatform()
 }
