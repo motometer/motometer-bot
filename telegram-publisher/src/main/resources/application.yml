@@ -1,4 +1,0 @@
-telegram:
-  output:
-    topic: telegram-out
-  token: ''
