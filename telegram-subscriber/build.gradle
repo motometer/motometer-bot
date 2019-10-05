@@ -22,13 +22,9 @@ repositories {
 
 sourceSets {
     integrationTest {
-        java {
-            srcDir file('src/integrationTest/java')
-        }
         compileClasspath += main.output + main.compileClasspath
         compileClasspath += test.output + test.compileClasspath
         runtimeClasspath += main.runtimeClasspath + test.runtimeClasspath
-        resources.srcDir file('src/integrationTest/resources')
     }
 }
 
