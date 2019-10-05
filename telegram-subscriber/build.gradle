@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'idea'
     id 'org.springframework.boot' version '2.1.8.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
@@ -18,22 +19,22 @@ repositories {
     mavenCentral()
     maven { url "https://dl.bintray.com/motometer/mvn" }
 }
+sourceSets {
+    integrationTest {
+        java {
+            srcDir file('src/integrationTest/java')
+            compileClasspath += test.compileClasspath
+            runtimeClasspath += test.runtimeClasspath
+        }
+        resources.srcDir file('src/integrationTest/resources')
+    }
+}
 
 configurations {
     integrationTestCompile.extendsFrom testCompile
     integrationTestRuntime.extendsFrom testRuntime
+    all*.exclude module: "tomcat-embed-core"
 }
-
-sourceSets {
-    integrationTest {
-        java.srcDir file('src/integrationTest/java')
-        resources.srcDir file('src/integrationTest/resources')
-        compileClasspath += configurations.test.compileClasspath
-        runtimeClasspath += configurations.test.runtimeClasspath
-    }
-}
-
-configurations.all*.exclude module: "tomcat-embed-core"
 
 dependencies {
     implementation 'org.motometer:telegram-bot-api:0.0.1'
