@@ -1,3 +1,4 @@
 rootProject.name = 'motometer-bot'
 include 'telegram-subscriber'
+include 'telegram-publisher'
 
