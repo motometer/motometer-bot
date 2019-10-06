@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class KafkaUpdateListener implements UpdateListener {
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, Update> kafkaTemplate;
 
     @Override
     public void onUpdate(Update update) {
-        kafkaTemplate.send("telegram-bot", update.toString());
+        kafkaTemplate.send("telegram-bot", update);
     }
 }
