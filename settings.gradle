@@ -1,3 +1,3 @@
-rootProject.name = 'motometer-bot'
+rootProject.name = 'telegram-bot-subscriber'
 include 'telegram-subscriber'
 
