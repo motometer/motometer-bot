@@ -1,2 +1,4 @@
 telegram:
   token: fake-token
+kafka:
+  update-topic: 'motometer-json-update'

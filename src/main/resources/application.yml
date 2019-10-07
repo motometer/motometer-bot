@@ -1,3 +1,5 @@
-telegram.token: token2019
+telegram:
+  token: token2019
 kafka:
   bootstrapAddress: 'localhost:9092'
+  update-topic: 'motometer-json-update'
