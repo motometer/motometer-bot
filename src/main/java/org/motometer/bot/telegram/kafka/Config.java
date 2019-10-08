@@ -4,6 +4,7 @@ import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.motometer.bot.telegram.api.KafkaUpdateListener;
 import org.motometer.telegram.bot.api.Update;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,9 @@ public class Config {
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
 
+    @Value(value = "${kafka.update-topic}")
+    private String updateTopic;
+
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
@@ -32,7 +36,7 @@ public class Config {
 
     @Bean
     public NewTopic botMessagesTopic() {
-        return new NewTopic("telegram-bot", 1, (short) 1);
+        return new NewTopic(updateTopic, 1, (short) 1);
     }
 
     @Bean
@@ -47,5 +51,10 @@ public class Config {
     @Bean
     public KafkaTemplate<String, Update> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public KafkaUpdateListener kafkaUpdateListener() {
+        return new KafkaUpdateListener(kafkaTemplate(), updateTopic);
     }
 }

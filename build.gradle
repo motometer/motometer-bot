@@ -16,7 +16,7 @@ ext {
 repositories {
 	mavenLocal()
 	mavenCentral()
-	maven { url "https://dl.bintray.com/motometer/mvn" }
+	jcenter()
 }
 
 sourceSets {
@@ -34,7 +34,7 @@ configurations {
 }
 
 dependencies {
-	implementation 'org.motometer:telegram-bot-api:0.0.1'
+	implementation 'org.motometer:telegram-bot-api:0.0.5'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-jetty'
 	implementation 'org.springframework.kafka:spring-kafka'

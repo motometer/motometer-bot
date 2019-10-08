@@ -4,16 +4,15 @@ import lombok.RequiredArgsConstructor;
 import org.motometer.telegram.bot.UpdateListener;
 import org.motometer.telegram.bot.api.Update;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
 public class KafkaUpdateListener implements UpdateListener {
 
     private final KafkaTemplate<String, Update> kafkaTemplate;
+    private final String updateTopic;
 
     @Override
     public void onUpdate(Update update) {
-        kafkaTemplate.send("telegram-bot", update);
+        kafkaTemplate.send(updateTopic, update);
     }
 }
