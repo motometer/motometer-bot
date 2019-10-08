@@ -1,4 +1,3 @@
 telegram:
-  token: fake-token
-kafka:
-  update-topic: 'motometer-json-update'
+  api: 'http://localhost:8383'
+  token: 'fake-token'
