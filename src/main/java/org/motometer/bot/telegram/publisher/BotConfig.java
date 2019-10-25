@@ -1,18 +1,17 @@
 package org.motometer.bot.telegram.publisher;
 
 import org.motometer.telegram.bot.Bot;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.motometer.telegram.bot.core.BotBuilder;
 
-@Configuration
-public class BotConfig {
+final class BotConfig {
 
-    @Bean
-    public Bot bot(@Value("${telegram.token}") String token, @Value("${telegram.api}") String api) {
-        return Bot.builder()
-            .token(token)
-            .apiHost(api)
+    private BotConfig() {
+
+    }
+
+    static Bot bot() {
+        return BotBuilder.defaultBuilder()
+            .token(System.getenv("TELEGRAM_TOKEN"))
             .build();
     }
 }
