@@ -1,6 +1,10 @@
 package org.motometer.bot.telegram.publisher;
 
 import org.junit.jupiter.api.Test;
+import org.motometer.telegram.bot.api.ChatType;
+import org.motometer.telegram.bot.api.ImmutableChat;
+import org.motometer.telegram.bot.api.ImmutableMessage;
+import org.motometer.telegram.bot.api.SendMessage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,13 +12,19 @@ class SendMessageFactoryTest {
 
     @Test
     void createMessage() {
-        var factory = new SendMessageFactory();
-        var chatId = 321;
+        SendMessageFactory factory = new SendMessageFactory();
+        int chatId = 321;
+        ImmutableMessage input = ImmutableMessage.builder()
+            .id(1)
+            .date(0)
+            .chat(ImmutableChat.builder().id(chatId).type(ChatType.PRIVATE_CHAT).build())
+            .build();
 
-        var message = factory.createMessage(chatId);
+        SendMessage message = factory.createMessage(input);
 
         assertThat(message).isNotNull();
         assertThat(message.chatId()).isEqualTo(chatId);
-        assertThat(message.text()).isEqualTo("Thanks for your message. The team is working hard to deliver me as soon as possible. I will DM you once I'm ready.");
+        assertThat(message.replyToMessageId()).isEqualTo(1);
+        assertThat(message.text()).isEqualTo("Ваше повідомлення прийнято, але на жаль я ще не готовий його опрацювати.");
     }
 }

@@ -1,16 +1,16 @@
 package org.motometer.bot.telegram.publisher;
 
-import org.motometer.telegram.bot.api.method.ImmutableSendMessage;
-import org.motometer.telegram.bot.api.method.SendMessage;
-import org.springframework.stereotype.Component;
+import org.motometer.telegram.bot.api.ImmutableSendMessage;
+import org.motometer.telegram.bot.api.Message;
+import org.motometer.telegram.bot.api.SendMessage;
 
-@Component
 public class SendMessageFactory {
 
-    public SendMessage createMessage(int chatId) {
-        return new ImmutableSendMessage.Builder()
-            .chatId(chatId)
-            .text("Thanks for your message. The team is working hard to deliver me as soon as possible. I will DM you once I'm ready.")
+    public SendMessage createMessage(Message message) {
+        return ImmutableSendMessage.builder()
+            .chatId(message.chat().id())
+            .replyToMessageId(message.id())
+            .text("Ваше повідомлення прийнято, але на жаль я ще не готовий його опрацювати.")
             .build();
     }
 }
